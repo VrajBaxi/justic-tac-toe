@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>TIC-TAC-TOE</title>
+    <style>
+        table{
+            border-collapse: collapse
+        }
+        td {
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        {% for i in range(3) %}
+        <tr>
+            {% for j in range(3) %}
+            <td>
+                {% if win %}              
+                    {% if win == game[i][j] %}
+                        {{ game[i][j] }} won!
+                    {% endif %}
+                {% else %}
+                    {% if game[i][j] %}
+                        {{ game[i][j] }}
+                    {% else %}
+                        <a href="{{ url_for('play', row=i, col=j) }}">Play {{ turn }} here</a>
+                    {% endif %}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('reset') }}"><button>Play Again</button></a>
+    <label>created by Justin Patel</label>
+</body>
+</html>
