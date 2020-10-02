@@ -1,2 +1,2 @@
-# TicTacToe
-Time craving game
+# TicTacToe - Let the battle begin
+  
